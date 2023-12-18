@@ -1,0 +1,48 @@
+// Заголовки, загальні БЕМ блоки та інше...
+$smallTextSize: 14;
+$baseTextSize: 16;
+$mediumTextSize: 18;
+$bigTextSize: 20;
+
+$baseTitleSize:48;
+$mediumTitleSize:58;
+
+$fontWeightRegular:400;
+$fontWeightMedium:500;
+$fontWeightBold:700;
+$fontWeightBlack:900;
+
+$bg:#FFFCF2;
+$black:#403D39;
+$orange:#EB5E28;
+$white:#FFFFFF;
+$gray:#837D76;
+$blue:#005ED2;
+$creamy:#F9F2E3;
+$ginFizz:#F4E7CB;
+$burlyWood:#E3BD8A;
+
+.title {
+    font-size: rem($baseTitleSize);
+    font-weight: $fontWeightBlack;
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.button {
+    padding: 14px 30px;
+    font-size: rem($baseTextSize);
+    font-weight: 500;
+    border-radius: 68px;
+    background-color: $orange;
+    color: $white;
+    &--blue {
+        background-color: $blue;
+        color: $white;
+    }
+}
+
+.page, .wrapper {
+    display: grid;
+    gap: 140px;
+}
