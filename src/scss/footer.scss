@@ -1,3 +1,64 @@
 //====================================================================================================
-
+.footer {
+    padding-bottom: 28px;
+    &__body {
+        display: flex;
+        padding: 60px 70px;
+        background: $black;
+        border-radius: 42px;
+    }
+}
+.contacts {
+    &__logo {
+        width: 188px;
+        margin-bottom: 42px;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 80px;
+    }
+    &__list-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    &__list-decor {
+        height: 30px;
+        width: 30px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        &--tel {
+            background-image: url("../img/icons/tel.svg");
+        }
+        &--geo {
+            background-image: url("../img/icons/geo.svg");
+        }
+        &--time {
+            background-image: url("../img/icons/time.svg");
+        }
+        &--vk {
+            background-image: url("../img/icons/vk.svg");
+        }
+    }
+    &__list-text {
+        color: $white;
+        line-height: 1.2;
+    }
+    &__copyright {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        color: $gray;
+        font-size: rem($smallTextSize);
+        font-weight: $fontWeightMedium;
+    }
+}
 //====================================================================================================
