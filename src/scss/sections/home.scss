@@ -69,6 +69,22 @@
     height: 80vh;
     &__image {
         position: absolute;
+        svg {
+            height: 100%;
+            width: 100%;
+            transition: opacity .5s ease;
+            &[data-image-top] {
+                position: absolute;
+                path {
+                    fill: $orange;
+                }
+            }
+            &[data-image-bot] {
+                path {
+                    fill: #F0E3CE;
+                }
+            }
+        }
         &:nth-child(1) {
             top: 184px;
             left: 60px;
