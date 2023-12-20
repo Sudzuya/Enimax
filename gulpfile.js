@@ -23,7 +23,7 @@ import { css } from "./config/gulp-tasks/css.js";
 import { js } from "./config/gulp-tasks/js.js";
 import { jsDev } from "./config/gulp-tasks/js-dev.js";
 import { images } from "./config/gulp-tasks/images.js";
-import { ftp } from "./config/gulp-tasks/ftp.js";
+// import { ftp } from "./config/gulp-tasks/ftp.js";
 import { zip } from "./config/gulp-tasks/zip.js";
 import { sprite } from "./config/gulp-tasks/sprite.js";
 import { gitignore } from "./config/gulp-tasks/gitignore.js";
@@ -44,19 +44,19 @@ export { jsDev }
 export { images }
 export { fonts }
 export { sprite }
-export { ftp }
+// export { ftp }
 export { zip }
 
 // Побудова сценаріїв виконання завдань
 const development = gulp.series(devTasks);
 const build = gulp.series(buildTasks);
-const deployFTP = gulp.series(buildTasks, ftp);
+// const deployFTP = gulp.series(buildTasks, ftp);
 const deployZIP = gulp.series(buildTasks, zip);
 
 // Експорт сценаріїв
 export { development }
 export { build }
-export { deployFTP }
+// export { deployFTP }
 export { deployZIP }
 
 // Виконання сценарію за замовчуванням
