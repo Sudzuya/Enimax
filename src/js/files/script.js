@@ -3,45 +3,28 @@ import { isMobile } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
-function changeOpacity(element, opacityValue) {
-    element.style.opacity = opacityValue;
-}
+import { gsap } from "gsap";
 
-function fadeInOut(element, fadeInTime, fadeOutTime) {
-    changeOpacity(element, '1'); // Установка opacity: 1
+const items = gsap.utils.toArray('.wrapper-image__image');
+items.forEach(item => {
+    const delay = Math.floor(gsap.utils.random(1, 10))
 
-    setTimeout(() => {
-        changeOpacity(element, '0'); // Установка opacity: 0
-    }, fadeOutTime * 1000); // Ожидание времени для исчезновения
-}
+    const topImage = item.querySelector('[data-image-top]');
+    const bottomImage = item.querySelector('[data-image-bot]');
 
-function handleOpacityAnimation() {
-    const topElements = document.querySelectorAll('[data-image-top]');
-    const botElements = document.querySelectorAll('[data-image-bot]');
+    gsap.set(bottomImage, {opacity: 0});
 
-    if (topElements.length > 0 && botElements.length > 0) {
-        topElements.forEach((topElement) => {
-            const fadeInTimeTop = Math.floor(Math.random() * 10) + 1; // Генерация случайного числа от 1 до 10 для появления data-image-top
-            const fadeOutTimeTop = 2; // Время затухания для data-image-top
+    gsap.timeline({delay: delay, repeat: -1})
+        .to(topImage, {duration: 0, opacity: 1, delay: 0.1})
+        .to(bottomImage, {duration: 0, opacity: 1, delay: 0})
+        .to(topImage, {duration: 2, opacity: 0, delay: 0})
+        .to(bottomImage, {duration: 3, opacity: 0, delay: 2});
+});
 
-            const fadeInTimeBot = fadeInTimeTop - 1 >= 0 ? fadeInTimeTop - 1 : 0; // fadeInTime для data-image-bot
 
-            setTimeout(() => {
-                fadeInOut(topElement, fadeInTimeTop, fadeOutTimeTop);
+const weDealsListItem = document.querySelectorAll('.we-deals-list-item')
+weDealsListItem.forEach((item)=> {
+    const itemDataAttribute = item.getAttribute('data-rotate')
 
-                setTimeout(() => {
-                    botElements.forEach((botElement) => {
-                        setTimeout(() => {
-                            fadeInOut(botElement, fadeInTimeBot, fadeOutTimeTop);
-                        }, fadeInTimeBot * 1000); // Задержка для появления data-image-bot после появления data-image-top
-                    });
-                }, fadeInTimeBot * 1000); // Задержка для появления data-image-bot после появления data-image-top
-            }, fadeInTimeTop * 1000); // Задержка для появления data-image-top
-        });
-    }
-}
-
-window.onload = function() {
-    setInterval(handleOpacityAnimation, 1000); // Повторять анимацию каждые 15 секунд
-    handleOpacityAnimation(); // Запуск первоначальной анимации
-};
+    item.style.rotate = `${itemDataAttribute}deg`
+})

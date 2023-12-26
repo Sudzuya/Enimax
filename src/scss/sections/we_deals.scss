@@ -17,6 +17,8 @@
     &__title {
         margin-bottom: 44px;
         text-align: center;
+        position: relative;
+        z-index: 1;
     }
     
     &__text {
@@ -36,6 +38,7 @@
     flex-wrap: wrap;
     gap: 72px;
     justify-content: center;
+    $rotate:0deg;
     &__row {
         width: 100%;
         display: flex;
@@ -47,13 +50,16 @@
             justify-content: center;
         }
     }
+    &__item {
+        $custom-value: attr(data-rotate);
+        rotate: $rotate;
+    }
 }
 .we-deals-list-item {
     padding: 0 10px;
     position: relative;
     width: fit-content;
     min-width: 150px;
-    box-shadow: -1px 4px 23px 0px rgba(235, 94, 40, 0.25);
     &::before, &::after {
         content: "";
         position: absolute;
@@ -63,14 +69,15 @@
         background-image: url('../../img/we_deals/decor_1.svg');
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
+        background-size: 88%;
     }
     &::before {
-        left: 0;
+        left: -2px;
         scale: -1 1;
+        filter: drop-shadow(4px 0px 3px rgba(235, 94, 40, 0.25))
     }
     &::after {
-        right: 0;
+        right: 2px;
     }
     &__text {
         padding: 19px 22px;
@@ -80,6 +87,7 @@
         text-align: center;
         white-space: nowrap;
         background-color: $white;
+        box-shadow: -1px 4px 23px 0px rgba(235, 94, 40, 0.25);
     }
     &--orange {
         &::before, &::after {
