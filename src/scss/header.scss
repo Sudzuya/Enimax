@@ -1,8 +1,6 @@
 //====================================================================================================
 .header {
-	position: fixed;
-	top: 0;
-	left: 0;
+	position: relative;
 	display: flex;
 	align-items: center;
 	height: 84px;
@@ -19,19 +17,54 @@
 	&__body {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		gap: 56px;
 	}
-	&__logo {
-		margin-right: auto;
-	}
+}
+.navigation-header {
 	&__list {
 		display: flex;
-    	align-items: center;
 	}
-	a:not(.header__logo-link) {
+	&__list-item {
 		padding: 14px 30px;
 		color: $white;
-		font-weight: 500;
+		border: 1px solid transparent;
+		border-radius: 68px;
+		&.active {
+			background-color: $gray;
+			border-color: $orange;
+		}
+	}
+}
+.user {
+	&__info {
+		position: relative;
+	}
+	&__name {
+		padding: 14px 30px;
+		color: $white;
+		border: 1px solid transparent;
+		border-radius: 68px;
+		&.active {
+			background-color: $gray;
+			border-color: $orange;
+		}
+	}
+	&__dropdown {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 10px;
+		background-color: white;
+		border-radius: 16px;
+		border: 1px solid $lightGray;
+		display: grid;
+		gap: 4px;
+	}
+	&__dropdown-item {
+		padding: 10px 34px;
+		background-color: $whisperBlue;
 	}
 }
 //====================================================================================================
